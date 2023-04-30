@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    let viewmodel:Viewmodel
     var body: some View {
+        
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+                .foregroundColor(.accentColor).onTapGesture {
+                    print(viewmodel.sentTokens,viewmodel.tokens)
+                    
+                }
+            Text(viewmodel.transcript)
         }
         .padding()
     }
@@ -21,6 +26,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(viewmodel: Viewmodel())
     }
 }

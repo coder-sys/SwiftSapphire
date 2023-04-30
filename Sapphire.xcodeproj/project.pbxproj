@@ -14,6 +14,9 @@
 		E7101ADA29FB6D6F001909DC /* SapphireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AD929FB6D6F001909DC /* SapphireTests.swift */; };
 		E7101AE429FB6D6F001909DC /* SapphireUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AE329FB6D6F001909DC /* SapphireUITests.swift */; };
 		E7101AE629FB6D6F001909DC /* SapphireUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AE529FB6D6F001909DC /* SapphireUITestsLaunchTests.swift */; };
+		E7101AF329FB6DBC001909DC /* Sapphire.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AF229FB6DBC001909DC /* Sapphire.swift */; };
+		E7101AF529FB6DE0001909DC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AF429FB6DE0001909DC /* ViewModel.swift */; };
+		E7101AF729FCD3EA001909DC /* Tokenization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AF629FCD3EA001909DC /* Tokenization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		E7101ADF29FB6D6F001909DC /* SapphireUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SapphireUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7101AE329FB6D6F001909DC /* SapphireUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SapphireUITests.swift; sourceTree = "<group>"; };
 		E7101AE529FB6D6F001909DC /* SapphireUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SapphireUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E7101AF229FB6DBC001909DC /* Sapphire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sapphire.swift; sourceTree = "<group>"; };
+		E7101AF429FB6DE0001909DC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		E7101AF629FCD3EA001909DC /* Tokenization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokenization.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +100,11 @@
 		E7101AC729FB6D6E001909DC /* Sapphire */ = {
 			isa = PBXGroup;
 			children = (
+				E7101AFA29FCD507001909DC /* Transcription */,
 				E7101AC829FB6D6E001909DC /* SapphireApp.swift */,
 				E7101ACA29FB6D6E001909DC /* ContentView.swift */,
+				E7101AF429FB6DE0001909DC /* ViewModel.swift */,
+				E7101AF829FCD4B5001909DC /* Tokenization */,
 				E7101ACC29FB6D6F001909DC /* Assets.xcassets */,
 				E7101ACE29FB6D6F001909DC /* Preview Content */,
 			);
@@ -125,6 +134,22 @@
 				E7101AE529FB6D6F001909DC /* SapphireUITestsLaunchTests.swift */,
 			);
 			path = SapphireUITests;
+			sourceTree = "<group>";
+		};
+		E7101AF829FCD4B5001909DC /* Tokenization */ = {
+			isa = PBXGroup;
+			children = (
+				E7101AF629FCD3EA001909DC /* Tokenization.swift */,
+			);
+			path = Tokenization;
+			sourceTree = "<group>";
+		};
+		E7101AFA29FCD507001909DC /* Transcription */ = {
+			isa = PBXGroup;
+			children = (
+				E7101AF229FB6DBC001909DC /* Sapphire.swift */,
+			);
+			path = Transcription;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +283,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7101ACB29FB6D6E001909DC /* ContentView.swift in Sources */,
+				E7101AF329FB6DBC001909DC /* Sapphire.swift in Sources */,
+				E7101AF729FCD3EA001909DC /* Tokenization.swift in Sources */,
+				E7101AF529FB6DE0001909DC /* ViewModel.swift in Sources */,
 				E7101AC929FB6D6E001909DC /* SapphireApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

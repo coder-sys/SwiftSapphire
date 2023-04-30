@@ -11,7 +11,7 @@ import SwiftUI
 struct SapphireApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewmodel: Viewmodel())
         }
     }
 }
