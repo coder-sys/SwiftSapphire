@@ -17,6 +17,8 @@
 		E7101AF329FB6DBC001909DC /* Sapphire.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AF229FB6DBC001909DC /* Sapphire.swift */; };
 		E7101AF529FB6DE0001909DC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AF429FB6DE0001909DC /* ViewModel.swift */; };
 		E7101AF729FCD3EA001909DC /* Tokenization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AF629FCD3EA001909DC /* Tokenization.swift */; };
+		E7101AFD29FF4B10001909DC /* TFIDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AFC29FF4B10001909DC /* TFIDF.swift */; };
+		E7101AFF29FF4EAF001909DC /* Stopwords.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AFE29FF4EAF001909DC /* Stopwords.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		E7101AF229FB6DBC001909DC /* Sapphire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sapphire.swift; sourceTree = "<group>"; };
 		E7101AF429FB6DE0001909DC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		E7101AF629FCD3EA001909DC /* Tokenization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokenization.swift; sourceTree = "<group>"; };
+		E7101AFC29FF4B10001909DC /* TFIDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFIDF.swift; sourceTree = "<group>"; };
+		E7101AFE29FF4EAF001909DC /* Stopwords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwords.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 		E7101AC729FB6D6E001909DC /* Sapphire */ = {
 			isa = PBXGroup;
 			children = (
+				E7101AFB29FF4AEE001909DC /* TFIDFEvaluation */,
 				E7101AFA29FCD507001909DC /* Transcription */,
 				E7101AC829FB6D6E001909DC /* SapphireApp.swift */,
 				E7101ACA29FB6D6E001909DC /* ContentView.swift */,
@@ -107,6 +112,7 @@
 				E7101AF829FCD4B5001909DC /* Tokenization */,
 				E7101ACC29FB6D6F001909DC /* Assets.xcassets */,
 				E7101ACE29FB6D6F001909DC /* Preview Content */,
+				E7101AFE29FF4EAF001909DC /* Stopwords.swift */,
 			);
 			path = Sapphire;
 			sourceTree = "<group>";
@@ -150,6 +156,14 @@
 				E7101AF229FB6DBC001909DC /* Sapphire.swift */,
 			);
 			path = Transcription;
+			sourceTree = "<group>";
+		};
+		E7101AFB29FF4AEE001909DC /* TFIDFEvaluation */ = {
+			isa = PBXGroup;
+			children = (
+				E7101AFC29FF4B10001909DC /* TFIDF.swift */,
+			);
+			path = TFIDFEvaluation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +297,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7101ACB29FB6D6E001909DC /* ContentView.swift in Sources */,
+				E7101AFF29FF4EAF001909DC /* Stopwords.swift in Sources */,
+				E7101AFD29FF4B10001909DC /* TFIDF.swift in Sources */,
 				E7101AF329FB6DBC001909DC /* Sapphire.swift in Sources */,
 				E7101AF729FCD3EA001909DC /* Tokenization.swift in Sources */,
 				E7101AF529FB6DE0001909DC /* ViewModel.swift in Sources */,
