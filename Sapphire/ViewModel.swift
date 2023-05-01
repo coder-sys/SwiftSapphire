@@ -8,7 +8,7 @@
 import Foundation
 
 class Viewmodel:ObservableObject{
-    private var model:Transcription = Transcription(VIDEOID:"bqu6BquVi2M",API_KEY:"AIzaSyA3ttDko3lrmOwDgpPDxV0rplPlnhZ_gc0")
+    private var model:Transcription = Transcription(VIDEOID:"bqu6BquVi2M",API_KEY:"API_KEY")
     
     private var tokeniser:Tokenization = Tokenization(corpus: "All human beings are born free and equal in dignity and rights.They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.".lowercased())
     
