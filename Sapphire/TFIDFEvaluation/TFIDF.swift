@@ -10,7 +10,7 @@ class TFIDF{
     @Published private(set) var tf:Array<Double>
     @Published private(set) var idf:Array<Double>
     @Published private(set) var words:Array<String>
-
+    @Published private(set) var collection:DATA
     func termFrequency(token: String, document: [String]) -> Double {
        // let termCount = document.filter { $0 == token }.count
        // let totalTerms = document.count
@@ -25,10 +25,19 @@ class TFIDF{
         let inverseDocumentFrequency = log(Double(corpus.count) / Double(documentFrequency))
         return inverseDocumentFrequency
     }
+    func scoreMultiplier(tf:[Double],idf:[Double])->[Double]{
+        assert(tf.count == idf.count, "Arrays must have the same length")
+        var tfidf: [Double] = []
+        for i in 0..<tf.count {
+            tfidf.append(tf[i] * idf[i])
+        }
+        return tfidf
+    }
     init(tokens:Array<String>,sentTokens:Array<String>){
         tf = Array<Double>()
         idf = Array<Double>()
         words = Array<String>()
+        collection = DATA(tokens:[String()],tf:[Double()],idf:[Double()],tfidf:[Double(4)])
         let filtered = tokens.filter { !stopwords.contains($0.lowercased()) }
         for token in filtered{
 
@@ -38,6 +47,7 @@ class TFIDF{
             idf.append(inverseDocFreq)
             words.append(token)
         }
+        collection = DATA(tokens:words,tf:tf,idf:idf,tfidf:scoreMultiplier(tf: tf, idf: idf))
     }
     struct DATA{
         var tokens:Array<String>
