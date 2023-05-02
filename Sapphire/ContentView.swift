@@ -15,7 +15,7 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor).onTapGesture {
-                    print(viewmodel.sentTokens,viewmodel.tokens)
+                    print(viewmodel.createTFIDFEvaluator())
                     
                 }
             Text(viewmodel.transcript)

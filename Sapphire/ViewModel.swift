@@ -10,7 +10,7 @@ import Foundation
 class Viewmodel:ObservableObject{
     private var model:Transcription = Transcription(VIDEOID:"bqu6BquVi2M",API_KEY:"API_KEY")
     
-    private var tokeniser:Tokenization = Tokenization(corpus: "All human beings are born free and equal in dignity and rights.They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.".lowercased())
+    private var tokeniser:Tokenization = Tokenization(corpus: "Deep neural networks, or deep learning networks, have several hidden layers with millions of artificial neurons linked together. A number, called weight, represents the connections between one node and another. The weight is a positive number if one node excites another, or negative if one node suppresses the other. Nodes with higher weight values have more influence on the other nodes.Theoretically, deep neural networks can map any input type to any output type. However, they also need much more training as compared to other machine learning methods. They need millions of examples of training data rather than perhaps the hundreds or thousands that a simpler network might need.".lowercased())
     
     var transcript:String {
         return model.transcript;
@@ -28,5 +28,10 @@ class Viewmodel:ObservableObject{
   
     func tokenizeTextIntoSentences(text:String) -> Array<String>{
         tokeniser.tokenizeTextIntoSentences(string:text,byDelimiter:".")
+    }
+    func createTFIDFEvaluator()->[Array<Double>]{
+        let tfidf = TFIDF(tokens: tokens, sentTokens: sentTokens)
+        print(tfidf.words)
+        return [tfidf.tf,tfidf.idf]
     }
 }
