@@ -31,7 +31,8 @@ class Viewmodel:ObservableObject{
     }
     func createTFIDFEvaluator()->[Array<Double>]{
         let tfidf = TFIDF(tokens: tokens, sentTokens: sentTokens)
-        print(tfidf.words)
+        let assessor:KeyWordAssesor = KeyWordAssesor(statistics:tfidf.collection)
+
         return [tfidf.tf,tfidf.idf]
     }
 }

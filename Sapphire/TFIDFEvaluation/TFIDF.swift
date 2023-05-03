@@ -11,13 +11,12 @@ class TFIDF{
     @Published private(set) var idf:Array<Double>
     @Published private(set) var words:Array<String>
     @Published private(set) var collection:DATA
-    func termFrequency(token: String, document: [String]) -> Double {
-       // let termCount = document.filter { $0 == token }.count
-       // let totalTerms = document.count
+    func termFrequency(token: String, document: [String]) -> [Double] {
+    
         let join = document.joined(separator: " ")
         let split = join.components(separatedBy: " ")
         let termCount = split.filter { $0 == token }.count
-        return Double(termCount) / Double(split.count)
+        return [Double(termCount),Double(termCount) / Double(split.count)]
     }
     
     func idfScore(token: String, corpus: [String]) -> Double {
@@ -43,7 +42,8 @@ class TFIDF{
 
             let termFreq = termFrequency(token:token,document: sentTokens)
             let inverseDocFreq = idfScore(token:token,corpus: sentTokens)
-            tf.append(termFreq)
+            print(token,termFreq[0])
+            tf.append(termFreq[1])
             idf.append(inverseDocFreq)
             words.append(token)
         }
@@ -54,6 +54,5 @@ class TFIDF{
         var tf:Array<Double>
         var idf:Array<Double>
         var tfidf:Array<Double>
-        
     }
 }
