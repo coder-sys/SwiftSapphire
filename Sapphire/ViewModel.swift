@@ -29,10 +29,10 @@ class Viewmodel:ObservableObject{
     func tokenizeTextIntoSentences(text:String) -> Array<String>{
         tokeniser.tokenizeTextIntoSentences(string:text,byDelimiter:".")
     }
-    func createTFIDFEvaluator()->[Array<Double>]{
+    func createTFIDFEvaluator()->TFIDF.DATA{
         let tfidf = TFIDF(tokens: tokens, sentTokens: sentTokens)
         let assessor:KeyWordAssesor = KeyWordAssesor(statistics:tfidf.collection)
-
-        return [tfidf.tf,tfidf.idf]
+        let collection:TFIDF.DATA = assessor.eliminateIteration(in: tfidf.collection)
+        return collection
     }
 }

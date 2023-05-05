@@ -42,7 +42,6 @@ class TFIDF{
 
             let termFreq = termFrequency(token:token,document: sentTokens)
             let inverseDocFreq = idfScore(token:token,corpus: sentTokens)
-            print(token,termFreq[0])
             tf.append(termFreq[1])
             idf.append(inverseDocFreq)
             words.append(token)

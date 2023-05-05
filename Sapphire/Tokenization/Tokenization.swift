@@ -53,5 +53,6 @@ class Tokenization{
         sentTokenized = tokenizeTextIntoSentences(string:text,byDelimiter:".");
         sentTokenized = sentTokenStrip(sentTokenized)
         detectWordTokens(in:sentTokenized)
+        print("tokens are ",tokens)
     }
 }
