@@ -10,6 +10,7 @@ class TFIDF{
     @Published private(set) var tf:Array<Double>
     @Published private(set) var idf:Array<Double>
     @Published private(set) var words:Array<String>
+    @Published private(set)  var distrib:Array<Double>
     @Published private(set) var collection:DATA
     func termFrequency(token: String, document: [String]) -> [Double] {
     
@@ -36,7 +37,8 @@ class TFIDF{
         tf = Array<Double>()
         idf = Array<Double>()
         words = Array<String>()
-        collection = DATA(tokens:[String()],tf:[Double()],idf:[Double()],tfidf:[Double(4)])
+        distrib = Array<Double>()
+        collection = DATA(tokens:[String()],tf:[Double()],idf:[Double()],tfidf:[Double(0)],distrib: [Double(0)])
         let filtered = tokens.filter { !stopwords.contains($0.lowercased()) }
         for token in filtered{
 
@@ -45,13 +47,15 @@ class TFIDF{
             tf.append(termFreq[1])
             idf.append(inverseDocFreq)
             words.append(token)
+            distrib.append(termFreq[0])
         }
-        collection = DATA(tokens:words,tf:tf,idf:idf,tfidf:scoreMultiplier(tf: tf, idf: idf))
+        collection = DATA(tokens:words,tf:tf,idf:idf,tfidf:scoreMultiplier(tf: tf, idf: idf),distrib:distrib)
     }
     struct DATA{
         var tokens:Array<String>
         var tf:Array<Double>
         var idf:Array<Double>
         var tfidf:Array<Double>
+        var distrib:Array<Double>
     }
 }

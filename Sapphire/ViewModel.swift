@@ -32,7 +32,10 @@ class Viewmodel:ObservableObject{
     func createTFIDFEvaluator()->TFIDF.DATA{
         let tfidf = TFIDF(tokens: tokens, sentTokens: sentTokens)
         let assessor:KeyWordAssesor = KeyWordAssesor(statistics:tfidf.collection)
-        let collection:TFIDF.DATA = assessor.eliminateIteration(in: tfidf.collection)
+        var collection:TFIDF.DATA = assessor.eliminateIteration(in: tfidf.collection)
+        collection = assessor.qualify(collection)
+        print(collection.distrib.count,collection.tfidf.count,collection.tokens.count)
         return collection
     }
+    
 }

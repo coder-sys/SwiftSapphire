@@ -19,6 +19,7 @@
 		E7101AF729FCD3EA001909DC /* Tokenization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AF629FCD3EA001909DC /* Tokenization.swift */; };
 		E7101AFD29FF4B10001909DC /* TFIDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AFC29FF4B10001909DC /* TFIDF.swift */; };
 		E7101AFF29FF4EAF001909DC /* Stopwords.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AFE29FF4EAF001909DC /* Stopwords.swift */; };
+		E72E07122A05D0C90087D2E4 /* FinalScoreEvaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72E07112A05D0C90087D2E4 /* FinalScoreEvaluation.swift */; };
 		E7A945732A01FD7500A37828 /* KeyWordAssessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A945722A01FD7500A37828 /* KeyWordAssessor.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		E7101AF629FCD3EA001909DC /* Tokenization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokenization.swift; sourceTree = "<group>"; };
 		E7101AFC29FF4B10001909DC /* TFIDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFIDF.swift; sourceTree = "<group>"; };
 		E7101AFE29FF4EAF001909DC /* Stopwords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwords.swift; sourceTree = "<group>"; };
+		E72E07112A05D0C90087D2E4 /* FinalScoreEvaluation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalScoreEvaluation.swift; sourceTree = "<group>"; };
 		E7A945722A01FD7500A37828 /* KeyWordAssessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyWordAssessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,7 @@
 		E7101AC729FB6D6E001909DC /* Sapphire */ = {
 			isa = PBXGroup;
 			children = (
+				E72E070E2A05CF460087D2E4 /* FinalScoreEvaluation */,
 				E7A945712A01FD4700A37828 /* KeyWordEvaluation */,
 				E7101AFB29FF4AEE001909DC /* TFIDFEvaluation */,
 				E7101AFA29FCD507001909DC /* Transcription */,
@@ -167,6 +170,14 @@
 				E7101AFC29FF4B10001909DC /* TFIDF.swift */,
 			);
 			path = TFIDFEvaluation;
+			sourceTree = "<group>";
+		};
+		E72E070E2A05CF460087D2E4 /* FinalScoreEvaluation */ = {
+			isa = PBXGroup;
+			children = (
+				E72E07112A05D0C90087D2E4 /* FinalScoreEvaluation.swift */,
+			);
+			path = FinalScoreEvaluation;
 			sourceTree = "<group>";
 		};
 		E7A945712A01FD4700A37828 /* KeyWordEvaluation */ = {
@@ -311,6 +322,7 @@
 				E7101ACB29FB6D6E001909DC /* ContentView.swift in Sources */,
 				E7101AFF29FF4EAF001909DC /* Stopwords.swift in Sources */,
 				E7101AFD29FF4B10001909DC /* TFIDF.swift in Sources */,
+				E72E07122A05D0C90087D2E4 /* FinalScoreEvaluation.swift in Sources */,
 				E7101AF329FB6DBC001909DC /* Sapphire.swift in Sources */,
 				E7101AF729FCD3EA001909DC /* Tokenization.swift in Sources */,
 				E7101AF529FB6DE0001909DC /* ViewModel.swift in Sources */,
