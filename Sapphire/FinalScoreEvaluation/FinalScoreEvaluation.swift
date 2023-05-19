@@ -6,18 +6,23 @@
 //
 
 import Foundation
-class FinalSquareCalculator{
+class FinalScoreCalculator{
+    @Published private var num:Double
+    @Published private var den:Double
     @Published private(set) var score:Double
-    private var num:Double
-    private var den:Double
+    
     func numeratorEvaluation(using statistics:TFIDF.DATA){
-        for i in 0...statistics.tokens.count-1{
-            num += statistics.tfidf[i]
+        for index in 0...statistics.tokens.count-1{
+            num += statistics.tfidf[index]*statistics.distrib[index]
         }
     }
     init(statistics:TFIDF.DATA){
-        score = Double()
         num = Double()
         den = Double()
+        score = Double()
+        numeratorEvaluation(using: statistics)
+        den = Double(statistics.tokens.count)
+        score = num/den
+        
     }
 }
