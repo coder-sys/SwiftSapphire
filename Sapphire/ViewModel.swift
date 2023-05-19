@@ -11,8 +11,8 @@ class Viewmodel:ObservableObject{
      private var model:Transcription = Transcription(VIDEOID:"bqu6BquVi2M",API_KEY:"API_KEY")
     
     private var tokeniser:Tokenization
-    init(transccript:String){
-        tokeniser = Tokenization(corpus: String(transccript).lowercased())
+    init(transcript:String){
+        tokeniser = Tokenization(corpus: String(transcript).lowercased())
     }
     
     var transcript:String {
@@ -31,9 +31,17 @@ class Viewmodel:ObservableObject{
         return tokeniser.sentTokenized
     }
     // MARK: - Instent(s)
-    
+    func fetchData(){
+        model.fetchData()
+    }
     func EvaluateTranscript()->Double{
         
+        var tokens:Array<String>{
+            return tokeniser.tokens
+        }
+        var sentTokens:Array<String>{
+            return tokeniser.sentTokenized
+        }
         let tfidf = TFIDF(tokens: tokens, sentTokens: sentTokens)
         let assessor:KeyWordAssesor = KeyWordAssesor(statistics:tfidf.collection)
         var collection:TFIDF.DATA = assessor.eliminateIteration(in: tfidf.collection)
