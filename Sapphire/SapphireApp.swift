@@ -10,8 +10,9 @@ import SwiftUI
 @main
 struct SapphireApp: App {
     var body: some Scene {
+
         WindowGroup {
-            ContentView(viewmodel: Viewmodel())
+            ContentView()
         }
     }
 }
