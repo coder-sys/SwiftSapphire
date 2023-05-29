@@ -12,22 +12,8 @@ class Tokenization{
     @Published private(set) var sentTokenized:[String]
     
     
-    func tokenizeCorpus(text:String)->[String]{
-        let tagger = NSLinguisticTagger(tagSchemes: [.tokenType], options: 0)
-        tagger.string = text
-        
-        let range = NSRange(location: 0, length: text.utf16.count)
-        let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace]
-        tagger.enumerateTags(in: range, unit: .word, scheme: .tokenType, options: options) { _, tokenRange, _ in
-            let word = (text as NSString).substring(with: tokenRange)
-            DispatchQueue.main.async {
-                self.tokens.append(word)
-                
-          }
-            
-            
-        }
-        return self.tokens
+    func tokenizeCorpus(_ inputString: String, delimiter: Character) -> [String] {
+        return inputString.split(separator: delimiter).map { String($0) }
     }
      func sentTokenStrip(_ sentTokens:Array<String>)->Array<String>{
         var newArr:Array<String> = []
@@ -39,7 +25,8 @@ class Tokenization{
     }
     func detectWordTokens(in sentTokens:Array<String>)->[String]{
         let attached = sentTokens.joined(separator: " ")
-        return tokenizeCorpus(text:attached)
+        print("attached is \(attached)")
+        return tokenizeCorpus(attached,delimiter: " ")
     }
     func tokenizeTextIntoSentences(string: String, byDelimiter delimiter: String) -> [String] {
         return string.split(separator: delimiter).map { String($0) }

@@ -7,51 +7,30 @@
 
 import Foundation
 
-class Viewmodel:ObservableObject{
-     private var model:Transcription = Transcription(VIDEOID:"bqu6BquVi2M",API_KEY:"API_KEY")
+class ViewModel: ObservableObject {
+    @Published var items: Transcription.Model?
     
-    private var tokeniser:Tokenization
-    init(transcript:String){
-        tokeniser = Tokenization(corpus: String(transcript).lowercased())
-    }
-    
-    var transcript:String {
-        return model.transcript;
-    }
-    
-    
-    var score:Double{
-        return EvaluateTranscript()
-    }
-    
-    var tokens:Array<String>{
-        return tokeniser.tokens
-    }
-    var sentTokens:Array<String>{
-        return tokeniser.sentTokenized
-    }
-    // MARK: - Instent(s)
-    func fetchData(){
-        model.fetchData()
-    }
-    func EvaluateTranscript()->Double{
+    func fetchData() {
+        let transcription = Transcription(VIDEOID: "your_video_id", API_KEY: "your_api_key")
         
-        var tokens:Array<String>{
-            return tokeniser.tokens
+        transcription.fetchData { [weak self] result in
+            self?.items = result
         }
-        var sentTokens:Array<String>{
-            return tokeniser.sentTokenized
-        }
-        let tfidf = TFIDF(tokens: tokens, sentTokens: sentTokens)
-        let assessor:KeyWordAssesor = KeyWordAssesor(statistics:tfidf.collection)
-        var collection:TFIDF.DATA = assessor.eliminateIteration(in: tfidf.collection)
-        collection = assessor.qualify(collection)
-        print(collection.distrib.count,collection.tfidf.count,collection.tokens.count)
-        let finalScore:FinalScoreCalculator = FinalScoreCalculator(statistics: collection)
-        return finalScore.score
-    }
-    
-    struct Model: Decodable {
-        let txt: String
     }
 }
+//  func EvaluateTranscript()->Double{
+//
+//      var tokens:Array<String>{
+//          return tokeniser.tokens
+//      }
+//      var sentTokens:Array<String>{
+//          return tokeniser.sentTokenized
+//      }
+//      let tfidf = TFIDF(tokens: tokens, sentTokens: sentTokens)
+//      let assessor:KeyWordAssesor = KeyWordAssesor(statistics:tfidf.collection)
+//      var collection:TFIDF.DATA = assessor.eliminateIteration(in: tfidf.collection)
+//      collection = assessor.qualify(collection)
+//      print(collection.distrib.count,collection.tfidf.count,collection.tokens.count)
+//      let finalScore:FinalScoreCalculator = FinalScoreCalculator(statistics: collection)
+//      return finalScore.score
+//  }
