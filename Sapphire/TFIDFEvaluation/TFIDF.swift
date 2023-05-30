@@ -22,9 +22,11 @@ class TFIDF{
     
     func idfScore(token: String, corpus: [String]) -> Double {
         let documentFrequency = corpus.filter { $0.contains(token) }.count
-        let inverseDocumentFrequency = log(Double(corpus.count) / Double(documentFrequency))
+        let additiveSmoothing = 1.0 // Additive smoothing value
+        let inverseDocumentFrequency = log((Double(corpus.count) + additiveSmoothing) / (Double(documentFrequency) + additiveSmoothing))
         return inverseDocumentFrequency
     }
+
     func scoreMultiplier(tf:[Double],idf:[Double])->[Double]{
         assert(tf.count == idf.count, "Arrays must have the same length")
         var tfidf: [Double] = []

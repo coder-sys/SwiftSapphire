@@ -18,7 +18,7 @@ class Tokenization{
      func sentTokenStrip(_ sentTokens:Array<String>)->Array<String>{
         var newArr:Array<String> = []
         sentTokens.forEach{sentToken in
-            let newStr = sentToken.replacingOccurrences(of: ",",with:"").replacingOccurrences(of: ":", with: "").replacingOccurrences(of: ";", with: "").replacingOccurrences(of: "/", with: "")
+            let newStr = sentToken.replacingOccurrences(of: ",",with:"").replacingOccurrences(of: ":", with: "").replacingOccurrences(of: ";", with: "").replacingOccurrences(of: "/", with: "").replacingOccurrences(of: "|", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "!", with: "").replacingOccurrences(of: "@", with: "").replacingOccurrences(of: "#", with: "").replacingOccurrences(of: "$", with: "").replacingOccurrences(of: "%", with: "").replacingOccurrences(of: "^", with: "").replacingOccurrences(of: "&", with: "").replacingOccurrences(of: "*", with: "").replacingOccurrences(of: "", with: "").replacingOccurrences(of: "[", with: "").replacingOccurrences(of: "]", with: "")
             newArr.append(newStr)
         }
         return newArr

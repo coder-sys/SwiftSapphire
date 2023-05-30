@@ -19,6 +19,7 @@
 		E7101AF729FCD3EA001909DC /* Tokenization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AF629FCD3EA001909DC /* Tokenization.swift */; };
 		E7101AFD29FF4B10001909DC /* TFIDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AFC29FF4B10001909DC /* TFIDF.swift */; };
 		E7101AFF29FF4EAF001909DC /* Stopwords.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AFE29FF4EAF001909DC /* Stopwords.swift */; };
+		E712E4242A256EA8009981E9 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E712E4232A256EA8009981E9 /* SplashScreenView.swift */; };
 		E72E07122A05D0C90087D2E4 /* FinalScoreEvaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72E07112A05D0C90087D2E4 /* FinalScoreEvaluation.swift */; };
 		E7A945732A01FD7500A37828 /* KeyWordAssessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A945722A01FD7500A37828 /* KeyWordAssessor.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		E7101AF629FCD3EA001909DC /* Tokenization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokenization.swift; sourceTree = "<group>"; };
 		E7101AFC29FF4B10001909DC /* TFIDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFIDF.swift; sourceTree = "<group>"; };
 		E7101AFE29FF4EAF001909DC /* Stopwords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwords.swift; sourceTree = "<group>"; };
+		E712E4232A256EA8009981E9 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		E72E07112A05D0C90087D2E4 /* FinalScoreEvaluation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalScoreEvaluation.swift; sourceTree = "<group>"; };
 		E7A945722A01FD7500A37828 /* KeyWordAssessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyWordAssessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +121,7 @@
 				E7101ACC29FB6D6F001909DC /* Assets.xcassets */,
 				E7101ACE29FB6D6F001909DC /* Preview Content */,
 				E7101AFE29FF4EAF001909DC /* Stopwords.swift */,
+				E712E4232A256EA8009981E9 /* SplashScreenView.swift */,
 			);
 			path = Sapphire;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				E72E07122A05D0C90087D2E4 /* FinalScoreEvaluation.swift in Sources */,
 				E7101AF329FB6DBC001909DC /* Sapphire.swift in Sources */,
 				E7101AF729FCD3EA001909DC /* Tokenization.swift in Sources */,
+				E712E4242A256EA8009981E9 /* SplashScreenView.swift in Sources */,
 				E7101AF529FB6DE0001909DC /* ViewModel.swift in Sources */,
 				E7101AC929FB6D6E001909DC /* SapphireApp.swift in Sources */,
 			);
