@@ -22,7 +22,7 @@ class TFIDF{
     
     func idfScore(token: String, corpus: [String]) -> Double {
         let documentFrequency = corpus.filter { $0.contains(token) }.count
-        let additiveSmoothing = 1.0 // Additive smoothing value
+        let additiveSmoothing = 0.0 // Additive smoothing value
         let inverseDocumentFrequency = log((Double(corpus.count) + additiveSmoothing) / (Double(documentFrequency) + additiveSmoothing))
         return inverseDocumentFrequency
     }

@@ -8,7 +8,6 @@
 import Foundation
 class FinalScoreCalculator{
     @Published private var num:Double
-    @Published private var den:Double
     @Published private(set) var score:Double
     
     func numeratorEvaluation(using statistics:TFIDF.DATA){
@@ -18,11 +17,9 @@ class FinalScoreCalculator{
     }
     init(statistics:TFIDF.DATA){
         num = Double()
-        den = Double()
         score = Double()
         numeratorEvaluation(using: statistics)
-        den = Double(statistics.tokens.count)
-        score = num/den
+        score = num
         
     }
 }

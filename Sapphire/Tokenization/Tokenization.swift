@@ -21,11 +21,11 @@ class Tokenization{
             let newStr = sentToken.replacingOccurrences(of: ",",with:"").replacingOccurrences(of: ":", with: "").replacingOccurrences(of: ";", with: "").replacingOccurrences(of: "/", with: "").replacingOccurrences(of: "|", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "!", with: "").replacingOccurrences(of: "@", with: "").replacingOccurrences(of: "#", with: "").replacingOccurrences(of: "$", with: "").replacingOccurrences(of: "%", with: "").replacingOccurrences(of: "^", with: "").replacingOccurrences(of: "&", with: "").replacingOccurrences(of: "*", with: "").replacingOccurrences(of: "", with: "").replacingOccurrences(of: "[", with: "").replacingOccurrences(of: "]", with: "")
             newArr.append(newStr)
         }
+         print(newArr)
         return newArr
     }
     func detectWordTokens(in sentTokens:Array<String>)->[String]{
         let attached = sentTokens.joined(separator: " ")
-        print("attached is \(attached)")
         return tokenizeCorpus(attached,delimiter: " ")
     }
     func tokenizeTextIntoSentences(string: String, byDelimiter delimiter: String) -> [String] {

@@ -30,22 +30,7 @@ class ViewModel: ObservableObject {
         let assessor:KeyWordAssesor = KeyWordAssesor(statistics:tfidf.collection)
         let collection:TFIDF.DATA = assessor.eliminateIteration(in: tfidf.collection)
         let finalScore:FinalScoreCalculator = FinalScoreCalculator(statistics: collection)
+        print(finalScore.score)
         return finalScore
     }
 }
-//  func EvaluateTranscript()->Double{
-//
-//      var tokens:Array<String>{
-//          return tokeniser.tokens
-//      }
-//      var sentTokens:Array<String>{
-//          return tokeniser.sentTokenized
-//      }
-//      let tfidf = TFIDF(tokens: tokens, sentTokens: sentTokens)
-//      let assessor:KeyWordAssesor = KeyWordAssesor(statistics:tfidf.collection)
-//      var collection:TFIDF.DATA = assessor.eliminateIteration(in: tfidf.collection)
-//      collection = assessor.qualify(collection)
-//      print(collection.distrib.count,collection.tfidf.count,collection.tokens.count)
-//      let finalScore:FinalScoreCalculator = FinalScoreCalculator(statistics: collection)
-//      return finalScore.score
-//  }

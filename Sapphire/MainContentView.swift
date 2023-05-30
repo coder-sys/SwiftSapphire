@@ -12,23 +12,24 @@ struct MainContentView: View {
     @State private var inputText: String = ""
     var body: some View {
         VStack{
-            TextField("Enter VideoID", text: $inputText)
+            TextField("Enter your search", text: $inputText)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .padding().frame(width: 200)
+                            .padding().frame(width: 250)
                         
             Text("You entered: \(inputText)")
                 .padding()
         }
             VStack {
-                if let model = viewModel.items {
+                if let model = viewModel.items?.txt {
                     
-                    let finalScore = viewModel.sapphireEvaluation(of:model.txt)
-                    Text(String(finalScore.score))
+                    let finalScore = viewModel.sapphireEvaluation(of:String(model))
+                        Text(String(finalScore.score))
+                        
+                    
                 } else {
                     Text("No transcription available")
                 }
-                
-                Button("Fetch Data") {
+                Button("Get info and ranking") {
                     viewModel.fetchData(of: inputText)
                     print(inputText)
                 }
