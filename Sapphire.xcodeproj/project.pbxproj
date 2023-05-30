@@ -8,18 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		E7101AC929FB6D6E001909DC /* SapphireApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AC829FB6D6E001909DC /* SapphireApp.swift */; };
-		E7101ACB29FB6D6E001909DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101ACA29FB6D6E001909DC /* ContentView.swift */; };
+		E7101ACB29FB6D6E001909DC /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101ACA29FB6D6E001909DC /* MainContentView.swift */; };
 		E7101ACD29FB6D6F001909DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7101ACC29FB6D6F001909DC /* Assets.xcassets */; };
 		E7101AD029FB6D6F001909DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7101ACF29FB6D6F001909DC /* Preview Assets.xcassets */; };
 		E7101ADA29FB6D6F001909DC /* SapphireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AD929FB6D6F001909DC /* SapphireTests.swift */; };
 		E7101AE429FB6D6F001909DC /* SapphireUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AE329FB6D6F001909DC /* SapphireUITests.swift */; };
 		E7101AE629FB6D6F001909DC /* SapphireUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AE529FB6D6F001909DC /* SapphireUITestsLaunchTests.swift */; };
-		E7101AF329FB6DBC001909DC /* Sapphire.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AF229FB6DBC001909DC /* Sapphire.swift */; };
+		E7101AF329FB6DBC001909DC /* Transcription.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AF229FB6DBC001909DC /* Transcription.swift */; };
 		E7101AF529FB6DE0001909DC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AF429FB6DE0001909DC /* ViewModel.swift */; };
 		E7101AF729FCD3EA001909DC /* Tokenization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AF629FCD3EA001909DC /* Tokenization.swift */; };
 		E7101AFD29FF4B10001909DC /* TFIDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AFC29FF4B10001909DC /* TFIDF.swift */; };
 		E7101AFF29FF4EAF001909DC /* Stopwords.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101AFE29FF4EAF001909DC /* Stopwords.swift */; };
-		E712E4242A256EA8009981E9 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E712E4232A256EA8009981E9 /* SplashScreenView.swift */; };
+		E712E4242A256EA8009981E9 /* SapphireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E712E4232A256EA8009981E9 /* SapphireView.swift */; };
+		E712E4262A2634D0009981E9 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E712E4252A2634D0009981E9 /* SplashScreenView.swift */; };
 		E72E07122A05D0C90087D2E4 /* FinalScoreEvaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72E07112A05D0C90087D2E4 /* FinalScoreEvaluation.swift */; };
 		E7A945732A01FD7500A37828 /* KeyWordAssessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A945722A01FD7500A37828 /* KeyWordAssessor.swift */; };
 /* End PBXBuildFile section */
@@ -44,7 +45,7 @@
 /* Begin PBXFileReference section */
 		E7101AC529FB6D6E001909DC /* Sapphire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sapphire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7101AC829FB6D6E001909DC /* SapphireApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SapphireApp.swift; sourceTree = "<group>"; };
-		E7101ACA29FB6D6E001909DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E7101ACA29FB6D6E001909DC /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
 		E7101ACC29FB6D6F001909DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7101ACF29FB6D6F001909DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E7101AD529FB6D6F001909DC /* SapphireTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SapphireTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,12 +53,13 @@
 		E7101ADF29FB6D6F001909DC /* SapphireUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SapphireUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7101AE329FB6D6F001909DC /* SapphireUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SapphireUITests.swift; sourceTree = "<group>"; };
 		E7101AE529FB6D6F001909DC /* SapphireUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SapphireUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		E7101AF229FB6DBC001909DC /* Sapphire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sapphire.swift; sourceTree = "<group>"; };
+		E7101AF229FB6DBC001909DC /* Transcription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transcription.swift; sourceTree = "<group>"; };
 		E7101AF429FB6DE0001909DC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		E7101AF629FCD3EA001909DC /* Tokenization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokenization.swift; sourceTree = "<group>"; };
 		E7101AFC29FF4B10001909DC /* TFIDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFIDF.swift; sourceTree = "<group>"; };
 		E7101AFE29FF4EAF001909DC /* Stopwords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwords.swift; sourceTree = "<group>"; };
-		E712E4232A256EA8009981E9 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		E712E4232A256EA8009981E9 /* SapphireView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SapphireView.swift; sourceTree = "<group>"; };
+		E712E4252A2634D0009981E9 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		E72E07112A05D0C90087D2E4 /* FinalScoreEvaluation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalScoreEvaluation.swift; sourceTree = "<group>"; };
 		E7A945722A01FD7500A37828 /* KeyWordAssessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyWordAssessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,13 +117,14 @@
 				E7101AFB29FF4AEE001909DC /* TFIDFEvaluation */,
 				E7101AFA29FCD507001909DC /* Transcription */,
 				E7101AC829FB6D6E001909DC /* SapphireApp.swift */,
-				E7101ACA29FB6D6E001909DC /* ContentView.swift */,
+				E7101ACA29FB6D6E001909DC /* MainContentView.swift */,
 				E7101AF429FB6DE0001909DC /* ViewModel.swift */,
 				E7101AF829FCD4B5001909DC /* Tokenization */,
 				E7101ACC29FB6D6F001909DC /* Assets.xcassets */,
 				E7101ACE29FB6D6F001909DC /* Preview Content */,
 				E7101AFE29FF4EAF001909DC /* Stopwords.swift */,
-				E712E4232A256EA8009981E9 /* SplashScreenView.swift */,
+				E712E4232A256EA8009981E9 /* SapphireView.swift */,
+				E712E4252A2634D0009981E9 /* SplashScreenView.swift */,
 			);
 			path = Sapphire;
 			sourceTree = "<group>";
@@ -162,7 +165,7 @@
 		E7101AFA29FCD507001909DC /* Transcription */ = {
 			isa = PBXGroup;
 			children = (
-				E7101AF229FB6DBC001909DC /* Sapphire.swift */,
+				E7101AF229FB6DBC001909DC /* Transcription.swift */,
 			);
 			path = Transcription;
 			sourceTree = "<group>";
@@ -322,13 +325,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7A945732A01FD7500A37828 /* KeyWordAssessor.swift in Sources */,
-				E7101ACB29FB6D6E001909DC /* ContentView.swift in Sources */,
+				E7101ACB29FB6D6E001909DC /* MainContentView.swift in Sources */,
 				E7101AFF29FF4EAF001909DC /* Stopwords.swift in Sources */,
 				E7101AFD29FF4B10001909DC /* TFIDF.swift in Sources */,
+				E712E4262A2634D0009981E9 /* SplashScreenView.swift in Sources */,
 				E72E07122A05D0C90087D2E4 /* FinalScoreEvaluation.swift in Sources */,
-				E7101AF329FB6DBC001909DC /* Sapphire.swift in Sources */,
+				E7101AF329FB6DBC001909DC /* Transcription.swift in Sources */,
 				E7101AF729FCD3EA001909DC /* Tokenization.swift in Sources */,
-				E712E4242A256EA8009981E9 /* SplashScreenView.swift in Sources */,
+				E712E4242A256EA8009981E9 /* SapphireView.swift in Sources */,
 				E7101AF529FB6DE0001909DC /* ViewModel.swift in Sources */,
 				E7101AC929FB6D6E001909DC /* SapphireApp.swift in Sources */,
 			);

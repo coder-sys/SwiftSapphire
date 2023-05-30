@@ -12,8 +12,8 @@ class ViewModel: ObservableObject {
     
     
     //MARK: -Intent(s)
-    func fetchData() {
-        let transcription = Transcription(VIDEOID: "your_video_id", API_KEY: "your_api_key")
+    func fetchData(of videoID:String) {
+        let transcription = Transcription(VIDEOID: videoID, API_KEY: "your_api_key")
         
         transcription.fetchData { [weak self] result in
             self?.items = result

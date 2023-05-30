@@ -13,7 +13,7 @@ class Transcription: ObservableObject {
     }
     
     func fetchData(completion: @escaping (Model?) -> Void) {
-        let api = "http://127.0.0.1:5000"
+        let api = "http://127.0.0.1:5000/get_transcript"
         guard let url = URL(string: api) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             do {
