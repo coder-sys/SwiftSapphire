@@ -9,32 +9,29 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var viewModel = ViewModel()
-    
+    @State private var viewState = "splash"
     var body: some View {
-        VStack {
-            if let txt = viewModel.items?.txt {
+        if viewState == "splash"{
+            SplashScreenView(viewState: viewState)
+
+        }
+        if viewState == "main"{
+            VStack {
+                if let txt = viewModel.items?.txt {
+                    
+                    let finalScore = viewModel.sapphireEvaluation(of:txt)
+                    Text(String(finalScore.score))
+                } else {
+                    Text("No transcription available")
+                }
                 
-                let tokeniser:Tokenization = Tokenization(corpus: "hi im srujan, how do you dp".lowercased())
-                
-                var sentTokenized = tokeniser.tokenizeTextIntoSentences(string:tokeniser.text,byDelimiter:".");
-                
-                let sentTokens = tokeniser.sentTokenStrip(sentTokenized)
-                let tokens = tokeniser.detectWordTokens(in:sentTokens)
-                let tfidf = TFIDF(tokens: tokeniser.tokens, sentTokens:sentTokens)
-                let assessor:KeyWordAssesor = KeyWordAssesor(statistics:tfidf.collection)
-                var collection:TFIDF.DATA = assessor.eliminateIteration(in: tfidf.collection)
-                let finalScore:FinalScoreCalculator = FinalScoreCalculator(statistics: collection)
-                Text(String(finalScore.score))
-            } else {
-                Text("No transcription available")
+                Button("Fetch Data") {
+                    viewModel.fetchData()
+                }
             }
             
-            Button("Fetch Data") {
-                viewModel.fetchData()
-            }
         }
     }
-    
     struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
