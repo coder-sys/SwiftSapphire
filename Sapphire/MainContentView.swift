@@ -20,18 +20,18 @@ struct MainContentView: View {
                 .padding()
         }
             VStack {
-                if let model = viewModel.items?.txt {
+                if var model = viewModel.items {
                     
-                    let finalScore = viewModel.sapphireEvaluation(of:String(model))
-                        Text(String(finalScore.score))
+                   // let finalScore = viewModel.sapphireEvaluation(of:String(model))
+                   //     Text(String(finalScore.score))
+                    Text(String(viewModel.addScore(to:&model).scores[0]))
                         
                     
                 } else {
                     Text("No transcription available")
                 }
                 Button("Get info and ranking") {
-                    viewModel.fetchData(of: inputText)
-                    print(inputText)
+                    viewModel.fetchData(of: inputText,and: inputText)
                 }
             }
             

@@ -12,8 +12,8 @@ class Transcription: ObservableObject {
         api_key = API_KEY
     }
     
-    func fetchData(completion: @escaping (Model?) -> Void) {
-        let api = "http://127.0.0.1:5000/get_transcript"
+    func fetchData(from query:String,completion: @escaping (Model?) -> Void) {
+        let api = "http://127.0.0.1:5000/get_transcript/\(query)"
         guard let url = URL(string: api) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             do {
@@ -38,10 +38,10 @@ class Transcription: ObservableObject {
     }
     
     struct Model: Decodable {
-        let thumbnail: [String]
-            let link: [String]
-            let name: [String]
-        let transcript: [String]
-        
+        let thumbnails: [String]
+        let links: [String]
+        let names: [String]
+        let transcripts: [String]
+        var scores: [Double]
     }
 }

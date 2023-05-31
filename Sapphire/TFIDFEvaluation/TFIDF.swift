@@ -13,28 +13,41 @@ class TFIDF{
     @Published private(set)  var distrib:Array<Double>
     @Published private(set) var collection:DATA
     func termFrequency(token: String, document: [String]) -> [Double] {
-    
-        let join = document.joined(separator: " ")
-        let split = join.components(separatedBy: " ")
-        let termCount = split.filter { $0 == token }.count
-        return [Double(termCount),Double(termCount) / Double(split.count)]
+        var termCount = 0
+        var totalTerms = 0
+
+        for term in document {
+            if term == token {
+                termCount += 1
+            }
+            totalTerms += 1
+        }
+
+        return [Double(termCount), Double(termCount) / Double(totalTerms)]
     }
+
     
     func idfScore(token: String, corpus: [String]) -> Double {
-        let documentFrequency = corpus.filter { $0.contains(token) }.count
-        let additiveSmoothing = 0.0 // Additive smoothing value
+        let corpusSet = Set(corpus)
+        let documentFrequency = corpusSet.contains(token) ? 1 : 0
+        let additiveSmoothing = 1.0 // Additive smoothing value
         let inverseDocumentFrequency = log((Double(corpus.count) + additiveSmoothing) / (Double(documentFrequency) + additiveSmoothing))
         return inverseDocumentFrequency
     }
 
-    func scoreMultiplier(tf:[Double],idf:[Double])->[Double]{
+
+    func scoreMultiplier(tf: [Double], idf: [Double]) -> [Double] {
         assert(tf.count == idf.count, "Arrays must have the same length")
-        var tfidf: [Double] = []
-        for i in 0..<tf.count {
-            tfidf.append(tf[i] * idf[i])
+
+        var tfidf = [Double](repeating: 0.0, count: tf.count)
+
+        for i in tf.indices {
+            tfidf[i] = tf[i] * idf[i]
         }
+
         return tfidf
     }
+
     init(tokens:Array<String>,sentTokens:Array<String>){
         tf = Array<Double>()
         idf = Array<Double>()

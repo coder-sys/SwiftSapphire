@@ -12,10 +12,10 @@ class ViewModel: ObservableObject {
     
     
     //MARK: -Intent(s)
-    func fetchData(of videoID:String) {
+    func fetchData(of videoID:String,and query:String) {
         let transcription = Transcription(VIDEOID: videoID, API_KEY: "your_api_key")
         
-        transcription.fetchData { [weak self] result in
+        transcription.fetchData(from:query) { [weak self] result in
             self?.items = result
         }
     }
@@ -32,5 +32,13 @@ class ViewModel: ObservableObject {
         let finalScore:FinalScoreCalculator = FinalScoreCalculator(statistics: collection)
         print(finalScore.score)
         return finalScore
+    }
+    func addScore(to model: inout Transcription.Model)->Transcription.Model {
+        var scores: [Double] = []
+        for transcript in model.transcripts {
+            scores.append(sapphireEvaluation(of: transcript).score)
+        }
+        model.scores = scores
+        return model
     }
 }
