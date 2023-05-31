@@ -29,6 +29,7 @@ struct MainContentView: View {
                     
                 } else {
                     Text("No transcription available")
+                    VideoCardView(imageName:"https://i.ytimg.com/vi/8mAITcNt710/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDbl5Ssz7QqYHagWcDXvWFKUpogOQ",name: "Harvard CS50 – Full Computer Science University Course", link: "https://www.youtube.com/watch?v=8mAITcNt710")
                 }
                 Button("Get info and ranking") {
                     viewModel.fetchData(of: inputText,and: inputText)
