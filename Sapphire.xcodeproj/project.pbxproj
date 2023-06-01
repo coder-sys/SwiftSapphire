@@ -94,7 +94,6 @@
 		E7101ABC29FB6D6E001909DC = {
 			isa = PBXGroup;
 			children = (
-				E712E4272A27179F009981E9 /* VideoCardView.swift */,
 				E7101AC729FB6D6E001909DC /* Sapphire */,
 				E7101AD829FB6D6F001909DC /* SapphireTests */,
 				E7101AE229FB6D6F001909DC /* SapphireUITests */,
@@ -115,6 +114,7 @@
 		E7101AC729FB6D6E001909DC /* Sapphire */ = {
 			isa = PBXGroup;
 			children = (
+				E712E4272A27179F009981E9 /* VideoCardView.swift */,
 				E72E070E2A05CF460087D2E4 /* FinalScoreEvaluation */,
 				E7A945712A01FD4700A37828 /* KeyWordEvaluation */,
 				E7101AFB29FF4AEE001909DC /* TFIDFEvaluation */,

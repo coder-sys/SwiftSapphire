@@ -39,6 +39,7 @@ class Transcription: ObservableObject {
     
     struct Model: Decodable {
         let thumbnails: [String]
+        let sentTokens: [[String]]
         let links: [String]
         let names: [String]
         let transcripts: [String]

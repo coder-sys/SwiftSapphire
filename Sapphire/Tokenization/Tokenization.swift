@@ -28,21 +28,13 @@ class Tokenization{
         let attached = sentTokens.joined(separator: " ")
         return tokenizeCorpus(attached,delimiter: " ")
     }
-    func tokenizeTextIntoSentences(string: String, byDelimiter delimiter: String) -> [String] {
-        return string.split(separator: delimiter).map { String($0) }
-    }
-    func tokenization()->[String]{
-        sentTokenized = tokenizeTextIntoSentences(string:text,byDelimiter:".");
-        sentTokenized = sentTokenStrip(sentTokenized)
-        return detectWordTokens(in:sentTokenized)
-    }
+    
     init(corpus:String){
         text = String();
         text = corpus;
         tokens = Array<String>();
         sentTokenized = Array<String>();
-        sentTokenized = tokenizeTextIntoSentences(string:text,byDelimiter:".");
-        sentTokenized = sentTokenStrip(sentTokenized)
-        tokens = detectWordTokens(in:sentTokenized)
+      //make change here
+        
     }
 }

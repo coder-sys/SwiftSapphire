@@ -47,13 +47,7 @@ class TFIDF{
 
         return tfidf
     }
-
-    init(tokens:Array<String>,sentTokens:Array<String>){
-        tf = Array<Double>()
-        idf = Array<Double>()
-        words = Array<String>()
-        distrib = Array<Double>()
-        collection = DATA(tokens:[String()],tf:[Double()],idf:[Double()],tfidf:[Double(0)],distrib: [Double(0)])
+    func createCollection(with tokens:Array<String>, and sentTokens:Array<String>)->DATA{
         let filtered = tokens.filter { !stopwords.contains($0.lowercased()) }
         for token in filtered{
 
@@ -65,6 +59,15 @@ class TFIDF{
             distrib.append(termFreq[0])
         }
         collection = DATA(tokens:words,tf:tf,idf:idf,tfidf:scoreMultiplier(tf: tf, idf: idf),distrib:distrib)
+        return collection
+    }
+    init(){
+        tf = Array<Double>()
+        idf = Array<Double>()
+        words = Array<String>()
+        distrib = Array<Double>()
+        collection = DATA(tokens:[String()],tf:[Double()],idf:[Double()],tfidf:[Double(0)],distrib: [Double(0)])
+        
     }
     struct DATA{
         var tokens:Array<String>
