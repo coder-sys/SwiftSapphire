@@ -22,7 +22,6 @@ struct MainContentView: View {
             VStack {
                 if var model = viewModel.items {
                     
-                    if inputText != ""{
                         Text(String(viewModel.addScore(to:&model).scores[0]))
                         Text(String(viewModel.addScore(to:&model).names[0]))
                         
@@ -31,7 +30,7 @@ struct MainContentView: View {
                         
                         Text(String(viewModel.addScore(to:&model).scores[2]))
                         Text(String(viewModel.addScore(to:&model).names[2]))
-                    }
+                    
                 } else {
                     Text("No transcription available")
                     VideoCardView(imageName:"https://i.ytimg.com/vi/8mAITcNt710/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDbl5Ssz7QqYHagWcDXvWFKUpogOQ",name: "Harvard CS50 – Full Computer Science University Course", link: "https://www.youtube.com/watch?v=8mAITcNt710")
