@@ -22,8 +22,8 @@ class TFIDF{
             }
             totalTerms += 1
         }
-
-        return [Double(termCount), Double(termCount) / Double(totalTerms)]
+        return [Double(1.0),Double(1.0)]
+        //return [Double(termCount), Double(termCount) / Double(totalTerms)]
     }
 
     
