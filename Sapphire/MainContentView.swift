@@ -72,7 +72,9 @@ struct MainContentView: View {
         Button("Get info and ranking") {
             viewModel.fetchData(of: inputText, and: inputText)
             inputText = ""
-
+            if viewModel.items != nil {
+                        viewModel.items = nil
+                    }
         }
     }
 }
