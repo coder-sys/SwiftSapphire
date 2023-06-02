@@ -25,22 +25,19 @@ struct MainContentView: View {
             VStack {
                 if var model = viewModel.items {
                     let result = viewModel.addScore(to: &model)
+                    
+                    ForEach(0..<result.scores.count, id: \.self) { index in
+                        Text(String(result.scores[index]))
+                        Text(String(result.names[index]))
+                    }
 
-                    Text(String(result.scores[0]))
-                    Text(String(result.names[0]))
-
-                    Text(String(result.scores[1]))
-                    Text(String(result.names[1]))
-
-                    Text(String(result.scores[2]))
-                    Text(String(result.names[2]))
-
-                    //refresh app here
+                    
+                    // Refresh app here
                 } else {
                     Text("No transcription available")
-                    VideoCardView(imageName: "https://i.ytimg.com/vi/8mAITcNt710/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDbl5Ssz7QqYHagWcDXvWFKUpogOQ", name: "Harvard CS50 – Full Computer Science University Course", link: "https://www.youtube.com/watch?v=8mAITcNt710")
                 }
             }
+
         }
         .onAppear {
             if isAppActive {
@@ -72,6 +69,7 @@ struct MainContentView: View {
         Button("Get info and ranking") {
             viewModel.fetchData(of: inputText, and: inputText)
             inputText = ""
+
         }
     }
 }

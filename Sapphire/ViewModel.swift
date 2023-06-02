@@ -10,7 +10,6 @@ import Foundation
 class ViewModel: ObservableObject {
     @Published var items: Transcription.Model?
     
-    let  finalScore:FinalScoreCalculator = FinalScoreCalculator()
     
     //MARK: -Intent(s)
     func fetchData(of videoID:String,and query:String) {
@@ -20,16 +19,20 @@ class ViewModel: ObservableObject {
             self?.items = result
         }
     }
-    func sapphireEvaluation(of txt:String,using sentTokens:[String],and tokens:[String])->Double{
+    func sapphireEvaluation(of txt:String,using sentTokens:[String],and tokens:[String])->FinalScoreCalculator{
         let tokeniser:Tokenization = Tokenization(corpus: txt.lowercased())
-        let sentTokenized = tokeniser.sentTokenStrip(sentTokens)
-        let tfidf = TFIDF()
-        let collection = tfidf.createCollection(with: tokens, and: sentTokenized)
-        let assessor = KeyWordAssesor(statistics: collection)
-        let collection1 = assessor.qualify(collection)
-        let score = finalScore.numeratorEvaluation(using: collection1)
         
-        return score
+        let sentTokenized = sentTokens
+        
+        let sentTokens = tokeniser.sentTokenStrip(sentTokenized)
+        let tokens = tokens
+        let tfidf = TFIDF()
+        let collection = tfidf.createCollection(with: tokens, and: sentTokens)
+        let assessor:KeyWordAssesor = KeyWordAssesor(statistics:collection)
+        let collection1:TFIDF.DATA = assessor.eliminateIteration(in: collection)
+        let finalScore:FinalScoreCalculator = FinalScoreCalculator(statistics: collection1)
+        print(finalScore.score)
+        return finalScore
     }
     func sortModelByScoresDescending(_ model: Transcription.Model) -> Transcription.Model {
         let sortedIndices = model.scores.indices.sorted { model.scores[$0] > model.scores[$1] }
@@ -49,7 +52,7 @@ class ViewModel: ObservableObject {
         var i = 0
         for (transcript,sentTokens) in zip(model.transcripts,model.sentTokens) {
             i += 1
-            scores.append(sapphireEvaluation(of: transcript,using:sentTokens,and: model.tokens[i-1]))
+            scores.append(sapphireEvaluation(of: transcript,using:sentTokens,and: model.tokens[i-1]).score)
         }
         model.scores = scores
         return sortModelByScoresDescending(model)
