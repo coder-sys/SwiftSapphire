@@ -27,17 +27,20 @@ struct MainContentView: View {
                     let result = viewModel.addScore(to: &model)
                     
                     ForEach(0..<result.scores.count, id: \.self) { index in
-                        Text(String(result.scores[index]))
-                        Text(String(result.names[index]))
+                        
+                        VideoCardView(imageName: result.thumbnails[index], name: result.names[index], link: result.links[index])
                     }
 
                     
                     // Refresh app here
                 } else {
                     Text("No transcription available")
+                    
                 }
             }
 
+        }.refreshable {
+            inputText = ""
         }
         .onAppear {
             if isAppActive {

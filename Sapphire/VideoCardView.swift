@@ -14,7 +14,7 @@ struct VideoCardView: View {
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 20).strokeBorder(Color.black, lineWidth: 2)
-                .frame(width: 250, height: 50)
+                .frame(width: 400, height: 50)
             
             HStack{
                 AsyncImage(url: URL(string: imageName)){ image in
@@ -23,7 +23,9 @@ struct VideoCardView: View {
                 } placeholder: {
                     Color.black
                 }.frame(width: 20,height: 20)
-               // Link(name, destination: URL(string:link)!)
+                Link(destination: URL(string:link)!){
+                    Text(name).frame(height: 25)
+                }
                 
             }
             
