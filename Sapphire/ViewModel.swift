@@ -21,16 +21,18 @@ class ViewModel: ObservableObject {
         }
     }
     func sapphireEvaluation(of txt:String,using sentTokens:[String],and tokens:[String])->Double{
-        
+        let tokeniser:Tokenization = Tokenization(corpus: txt.lowercased())
+        let sentTokenized = tokeniser.sentTokenStrip(sentTokens)
         let tfidf = TFIDF()
-        let collection = tfidf.createCollection(with: tokens, and: sentTokens)
-        let score = finalScore.numeratorEvaluation(using: collection)
+        let collection = tfidf.createCollection(with: tokens, and: sentTokenized)
+        let assessor = KeyWordAssesor(statistics: collection)
+        let collection1 = assessor.qualify(collection)
+        let score = finalScore.numeratorEvaluation(using: collection1)
         
         return score
     }
     func sortModelByScoresDescending(_ model: Transcription.Model) -> Transcription.Model {
         let sortedIndices = model.scores.indices.sorted { model.scores[$0] > model.scores[$1] }
-
         let sortedThumbnails = sortedIndices.map { model.thumbnails[$0] }
         let sortedSentTokens = sortedIndices.map { model.sentTokens[$0] }
         let sortedTokens = sortedIndices.map { model.tokens[$0] }
@@ -39,17 +41,8 @@ class ViewModel: ObservableObject {
         let sortedTranscripts = sortedIndices.map { model.transcripts[$0] }
         let sortedScores = sortedIndices.map { model.scores[$0] }
 
-        return Transcription.Model(
-            thumbnails: sortedThumbnails,
-            sentTokens: sortedSentTokens,
-            tokens: sortedTokens,
-            links: sortedLinks,
-            names: sortedNames,
-            transcripts: sortedTranscripts,
-            scores: sortedScores
-        )
+        return Transcription.Model(thumbnails: sortedThumbnails,sentTokens: sortedSentTokens,tokens: sortedTokens , links: sortedLinks, names: sortedNames, transcripts: sortedTranscripts, scores: sortedScores)
     }
-
 
     func addScore(to model: inout Transcription.Model)->Transcription.Model {
         var scores: [Double] = []
