@@ -12,6 +12,7 @@ struct MainContentView: View {
     @State private var inputText: String = ""
     @State private var refreshFlag = false
     @State private var buttonMessage = "get result"
+    @State private var buttonClicked = false
     @SceneStorage("isAppActive") var isAppActive = false
     
     var body: some View {
@@ -77,10 +78,12 @@ struct MainContentView: View {
              viewModel.mutateModelToNil(&viewModel.items)
             if buttonMessage == "get result"{
                 buttonMessage = "clear to make another search once your result arrives"
+                buttonClicked.toggle()
             }
             else{
                 buttonMessage = "get result"
                 inputText = ""
+                buttonClicked.toggle()
             }
             }
     }
