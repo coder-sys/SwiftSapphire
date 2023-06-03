@@ -11,7 +11,7 @@ struct MainContentView: View {
     @StateObject private var viewModel = ViewModel()
     @State private var inputText: String = ""
     @State private var refreshFlag = false
-    
+    @State private var buttonMessage = "get result"
     @SceneStorage("isAppActive") var isAppActive = false
     
     var body: some View {
@@ -29,18 +29,20 @@ struct MainContentView: View {
                     ForEach(0..<result.scores.count, id: \.self) { index in
                         
                         VideoCardView(imageName: result.thumbnails[index], name: result.names[index], link: result.links[index])
+                        
                     }
-
-                    
                     // Refresh app here
                 } else {
-                    Text("No transcription available")
-                    
+                    if inputText != ""{
+                        Text("Loading...")
+                        Image(systemName:"opticaldiscdrive").frame(width: 50,height: 50)
+                    }
+                    else{
+                        Text("No transcription available")
+                    }
                 }
             }
 
-        }.refreshable {
-            inputText = ""
         }
         .onAppear {
             if isAppActive {
@@ -49,6 +51,7 @@ struct MainContentView: View {
                 // Refresh the view
                 DispatchQueue.main.async {
                     refreshFlag.toggle()
+
                 }
                 
                 // Reset the flag
@@ -69,12 +72,16 @@ struct MainContentView: View {
             // App is about to resign active, store the state
             isAppActive = true
         }
-        Button("Get info and ranking") {
+        Button(buttonMessage) {
             viewModel.fetchData(of: inputText, and: inputText)
-            inputText = ""
-            if viewModel.items != nil {
-                        viewModel.items = nil
-                    }
-        }
+             viewModel.mutateModelToNil(&viewModel.items)
+            if buttonMessage == "get result"{
+                buttonMessage = "clear to make another search once your result arrives"
+            }
+            else{
+                buttonMessage = "get result"
+                inputText = ""
+            }
+            }
     }
 }

@@ -22,7 +22,7 @@ struct VideoCardView: View {
                         
                 } placeholder: {
                     Color.black
-                }.frame(width: 20,height: 20)
+                }.frame(width: 50,height: 50)
                 Link(destination: URL(string:link)!){
                     Text(name).frame(height: 25)
                 }

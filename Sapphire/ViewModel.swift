@@ -18,7 +18,14 @@ class ViewModel: ObservableObject {
             self?.items = result
         }
     }
-    
+    func mutateModelToNil(_ model: inout Transcription.Model?) {
+        if model != nil {
+            model = nil
+        }
+    }
+    func mutateButtonMessage(_ target:String)->String{
+        return "Clear to make another search"
+    }
     func sapphireEvaluation(of txt: String, using sentTokens: [String], and tokens: [String]) -> FinalScoreCalculator {
         let tokeniser: Tokenization = Tokenization(corpus: txt.lowercased())
         
