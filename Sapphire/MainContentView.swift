@@ -34,13 +34,12 @@ struct MainContentView: View {
                     }
                     // Refresh app here
                 } else {
-                    if inputText != ""{
+                    if inputText != "" && buttonClicked==true
+                    {
                         Text("Loading...")
                         Image(systemName:"opticaldiscdrive").frame(width: 50,height: 50)
                     }
-                    else{
-                        Text("No transcription available")
-                    }
+                    
                 }
             }
 
